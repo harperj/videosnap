@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Videosnap by matthutchinson</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Videosnap</h1>
+        <p>Simple command line app to record video and audio from a QuickTime capture device</p>
+
+        <p class="view"><a href="https://github.com/matthutchinson/videosnap">View the Project on GitHub <small>matthutchinson/videosnap</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/matthutchinson/videosnap/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/matthutchinson/videosnap/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/matthutchinson/videosnap">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="videosnap" class="anchor" href="#videosnap"><span class="octicon octicon-link"></span></a>VideoSnap</h1>
+
+<p>VideoSnap is an OSX command line tool for recording video and audio from any
+attached QuickTime capture device.</p>
+
+<p>You can specify which device to capture from, the duration, size/quality, a
+delay period (before capturing starts) and optionally turn off audio capturing.</p>
+
+<p>The only <em>required</em> argument is a file path. By default VideoSnap will capture 6
+seconds of video and audio from the default capture device in H.264(SD480)/AAC
+encoding to 'movie.mov'. You can also use VideoSnap to list attached QuickTime
+capture devices by name.</p>
+
+<p>This command was inspired by <a href="https://github.com/rharder/imagesnap">ImageSnap</a>
+from <a href="https://github.com/rharder">@rharder</a>, and driven by problems with the
+older (carbon based) <a href="http://webcam-tools.sourceforge.net">wacaw</a> command
+(which no longer works with some of the latest Mac/OSX hardware).</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>The following options are available:</p>
+
+<pre><code>  -l    List attached QuickTime capture devices
+  -t    Set duration of video (in seconds, default 6s)
+  -w    Set delay before capturing starts (in seconds, default 0s)
+  -d    Set the capture device by name (use -l to list attached devices)
+  -s    Set the H.264 video size/quality (use 120, 240, SD480 (default) HD720)
+  -v    Turn ON verbose mode (OFF by default)
+  -h    Show help
+  --no-audio
+        Don't capture audio (audio IS captured by default)
+</code></pre>
+
+<h3>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>Capture 10.75 secs of video in 720HD format to movie.mov</p>
+
+<pre><code>videosnap -t 10.75 -s 'HD720'
+</code></pre>
+
+<p>Capture 1 minute of SD480 video (default), but no audio from the
+"Built-in iSight" device, delaying for 5 secs, saving to my_video.mov</p>
+
+<pre><code>videosnap -t 60 -w 5 -d 'Built-in iSight' --no-audio my_video.mov
+</code></pre>
+
+<h2>
+<a name="compatibility" class="anchor" href="#compatibility"><span class="octicon octicon-link"></span></a>Compatibility</h2>
+
+<p>VideoSnap is OSX only, and should work without any issues on OSX 10.5+.
+If you do run into problems with the command, please <a href="https://github.com/matthutchinson/videosnap/issues">report an
+issue</a>.</p>
+
+<h2>
+<a name="contibuting" class="anchor" href="#contibuting"><span class="octicon octicon-link"></span></a>Contibuting</h2>
+
+<p>If you would like to suggest a feature or report a bug, please use <a href="https://github.com/matthutchinson/videosnap/issues">GitHub
+issues</a> and if possible
+(fork the project) and submit a pull-request. When reporting a bug, please
+clearly indicate what platform and hardware you are running and the steps I
+should take to reproduce the issue.</p>
+
+<h2>
+<a name="development" class="anchor" href="#development"><span class="octicon octicon-link"></span></a>Development</h2>
+
+<p>VideoSnap is coded with Objective-C and uses the
+<a href="https://developer.apple.com/technologies/mac/cocoa.html">Cocoa</a> and
+<a href="https://developer.apple.com/quicktime/">QTKit</a> frameworks to capture video.
+You can build the project with <a href="http://developer.apple.com/xcode/">Xcode</a>
+(using the Xcode project in the repository, or via the command line with
+<code>xcodebuild</code>)</p>
+
+<h2>
+<a name="ideas" class="anchor" href="#ideas"><span class="octicon octicon-link"></span></a>Ideas</h2>
+
+<ul>
+<li>Default filename should include a time stamp of when recording began</li>
+<li>Allow more size/quality options for video and/or audio</li>
+<li>Allow VideoSnap to capture a single frame to an image file (with compression
+options based on file type like <a href="https://github.com/rharder/imagesnap">ImageSnap</a>)</li>
+<li>Add optional window pane showing a CaptureView during recording</li>
+<li>Add a comprehensive test suite in Xcode</li>
+<li>Add a pkg installer</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/matthutchinson">matthutchinson</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-2334875-16");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>

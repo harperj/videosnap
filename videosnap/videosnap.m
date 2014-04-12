@@ -153,6 +153,9 @@
         verbose("(delay period ended)\n");
       }
       verbose("(starting capture to file url)\n");
+			NSDate *date = [NSDate date];
+			double timePassed_ms = [date timeIntervalSince1970];
+			verbose("unix time: %.2lf \n", timePassed_ms);
       [captureMovieFileOutput recordToOutputFileURL:[NSURL fileURLWithPath:filePath]];
     } else {
       error("Could not start the capture session\n");
